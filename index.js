@@ -1,12 +1,11 @@
 const contactsApi = require("./contacts");
 const argv = require("yargs").argv;
 
-// TODO: рефакторить
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
       const contact = await contactsApi.listContacts();
-      console.log(contact);
+      console.log(JSON.parse(contact));
       break;
 
     case "get":
